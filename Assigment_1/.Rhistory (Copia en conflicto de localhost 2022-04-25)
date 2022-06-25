@@ -1,0 +1,157 @@
+pacman::p_load(tidyverse, MASS, stargazer, dplyr)
+wea <-read.csv("tarea1.csv")
+View(wea)
+wea$GXP <-wea$GASP/wea$pop
+wea$GXP <-wea$GASP / wea$pop
+class(wea$GASP)
+mutate(wea, GxP = wea$GASEXP / wea$POP)
+View(wea)
+wea$GxP <-mutate(wea, GxP = wea$GASEXP / wea$POP)
+View(wea)
+wea$GxP <-wea$GASEXP / wea$POP
+View(wea)
+wea$GxP <-round(wea$GASEXP / wea$POP),3
+wea$GxP <-round(wea$GASEXP / wea$POP, digits = 3)
+wea$GxP <-round(wea$GASEXP / wea$POP, digits = 10)
+wea$GxP <-round(wea$GASEXP / wea$POP)
+wea$GxP <-(wea$GASEXP / wea$POP)
+wea$GxP <-(wea$GASEXP/wea$GASP*wea$POP)
+wea$GPC <-(wea$GASEXP/wea$GASP*wea$POP)
+pacman::p_load(tidyverse, MASS, stargazer, dplyr)
+#Cargamos base de datos
+wea <-read.csv("tarea1.csv")
+wea$GPC <-(wea$GASEXP/wea$GASP*wea$POP)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + YEAR, data = wea)
+summary(reg1)
+View(wea)
+stargazer::stargazer(reg1)
+t.test(wea$GPC, wea$PNC)
+reg2 <-lm(GPC ~ PNC + data = wea)
+reg2 <-lm(GPC ~ PNC + PUC, data = wea)
+reg2
+summary(reg2 )
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + YEAR, data = wea)
+summary(reg1)
+wea$GPC <-wea$GASEXP/(wea$GASP*wea$POP)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + YEAR + PS + PN + PS, data = wea)
+summary(reg1)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + YEAR + PS + PN, data = wea)
+summary(reg1)
+stargazer::stargazer(reg1)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + YEAR, data = wea)
+summary(reg1)
+reg2 <-lm(GPC ~ PNC + PUC, data = wea) # esta puede ser una salida posible
+summary(reg2 )
+var.test(wea$PNC ~ wea$PUC)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + YEAR, data = wea)
+summary(reg1)
+var.test(wea$PNC, wea$PUC, null.value=1, alternative = "two.sided", conf.level = 0.95)
+?var.test
+?var.test
+View(reg1)
+View(wea)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN, YEAR, data = wea)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+View(reg1)
+View(wea)
+View(reg1)
+View(reg1)
+wea$t <-wea$YEAR - 1952
+wea$GPC <-wea$GASEXP/(wea$GASP*wea$POP)
+wea$t <-wea$YEAR - 1952
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+View(reg1)
+wea$GPC <-wea$GASEXP*10000000000/(wea$GASP*wea$POP*1000)
+wea$t <-wea$YEAR - 1952
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+wea$GPC <-wea$GASEXP*10000000000/(wea$GASP*wea$POP*1000)
+wea$GPC <-wea$GASEXP*10^9/(wea$GASP*wea$POP*10^3)
+wea$t <-wea$YEAR - 1952
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+wea <-read.csv("tarea1.csv")
+wea$GPC <-wea$GASEXP*10^9/(wea$GASP*wea$POP*10^3)
+wea$t <-wea$YEAR - 1952
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+reg1
+summary(reg1)
+stargazer::stargazer(reg1, type = "text")
+install.packages("modelsummary")
+wea$totPr <-wea$PNC + wea$PUC
+View(reg1)
+View(wea)
+reg1 <-lm(GPC ~ INCOME + GASP + totPr + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+regRES <-lm(GPC ~ INCOME + GASP + totPr + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+summary(regNORE)
+regNORE <-lm(GPC ~ INCOME + GASP + PUC + PNC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(regNORE)
+View(regNORE)
+f= ((RES-noRE)/2) /noRE/(52-10)
+RES <-0.9912
+noRE <-0.9913
+f= ((RES-noRE)/2) /noRE/(52-10)
+f= ((RES-noRE)/2) /noRE/(52-10))
+f= ((RES-noRE)/2) (/noRE/(52-10))
+f= ((RES-noRE)/2) /(noRE/(52-10))
+knitr::opts_chunk$set(echo = TRUE)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+stargazer::stargazer(reg1, type = "text")
+summary(reg1)
+pacman::p_load(tidyverse, MASS, stargazer, dplyr, modelsummary)
+wea <-read.csv("tarea1.csv")
+wea$GPC <-wea$GASEXP* 10^9 / (wea$GASP* wea$POP* 10^3)
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+msummary(reg1)
+msummary(reg1, statistic_vertical = FALSE)
+msummary(reg1, stars= TRUE, fmt=3,
+estimate = "{estimate} ({std.error}){stars}", statistic=NULL,  gof_omit = "AIC|BIC|Lik",
+coef_map = cm))
+msummary(reg1, stars= TRUE, fmt=3,
+estimate = "{estimate} ({std.error}){stars}", statistic=NULL,  gof_omit = "AIC|BIC|Lik",
+coef_map = cm)
+modelsummary::modelsummary(reg1, stars= TRUE, fmt=3,
+estimate = "{estimate} ({std.error}){stars}", statistic=NULL,  gof_omit = "AIC|BIC|Lik",
+coef_map = cm)
+modelsummary::modelsummary(reg1)
+data <- data%>%
+mutate(suma=PNC+PUC)
+data <- wea%>%
+mutate(suma=PNC+PUC)
+regRES <-lm(GPC ~ INCOME + GASP + suma + PPT + PS + PD + PN + YEAR, data = wea)
+data <- wea%>%
+mutate(suma=PNC+PUC)
+wea <- wea%>%
+mutate(suma=PNC+PUC)
+regRES <-lm(GPC ~ INCOME + GASP + suma + PPT + PS + PD + PN + YEAR, data = wea)
+summary(reg1)
+regNORE <-lm(GPC ~ INCOME + GASP + PUC + PNC + PPT + PS + PD + PN + YEAR, data = wea)
+summary(regNORE)
+regNORE$coefficients
+regNORE$residuals
+View(regNORE)
+f= ((RES-noRE)/2) /(noRE/(52-10))
+qf(p=.05, df1=2, df2=42, lower.tail=FALSE)
+h<-qf(p=.05, df1=2, df2=42, lower.tail=FALSE)
+plot(h)
+f= ((RES-noRE)/2) /(noRE/(52-10))
+qf(p=.05, df1=2, df2=42, lower.tail=FALSE)
+reg_d <- lm (log(GASEXP_pc) ~ log(GASP) + YEAR + log(PNC) + log(PUC) + log(PPT) + log(PD) + log(PN) + log(PS), data=data )
+reg_d <- lm (log(GPC) ~ log(GASP) + YEAR + log(PNC) + log(PUC) + log(PPT) + log(PD) + log(PN) + log(PS), data=data )
+reg_d
+reg_d <- lm (log(GPC) ~ log(GASP) + YEAR + log(PNC) + log(PUC) + log(PPT) +
+log(PD) + log(PN) + log(PS), data=data)
+reg_d
+qf(p=.05, df1=2, df2=42, lower.tail=FALSE)
+f <- ((noRE - RES) / 2) / ((1 - noRE) / (52-7))
+((noRE - RES) / 2) / ((1 - noRE) / (52-7))
+f= ((RES-noRE)/2) /(noRE/(52-10))
+((RES-noRE)/2) /(noRE/(52-10))
+((noRE - RES) / 2) / ((1 - noRE) / (52-7))

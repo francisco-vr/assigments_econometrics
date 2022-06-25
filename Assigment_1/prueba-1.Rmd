@@ -1,0 +1,613 @@
+---
+title: "Tarea Nª1"
+subtitle: "Curso Teoría econométrica"
+author: "Francisco Villarroel Riquelme"
+date: '2022-04-20'
+output: pdf_document
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Pregunta 1
+
+## a)
+
+Se pide sacar el estadígrafo F, y a la vez se sabe que las hipótesis planteadas no son conjuntas ya que una de ellas es igual a 1. Por tando se utiliza la siguiente fórmula: 
+
+$$F_{r, n-k}=\frac{\frac{(C \hat{\beta}-C \beta)^{\prime}\left(C\left(X^{\prime} X\right)^{-1} C^{\prime}\right)^{-1}(C \hat{\beta}-C \beta)}{r}}{\hat{\sigma}_{u}^{2}}$$
+
+Para descomponer esta escuación debemos identificar algunos elementos, considere que:
+
+$$C \beta = \gamma$$
+Obteniendo la matriz de coeficientes del sistema de restricciones y con los beta gorro dados, reescribimos la ecuación:
+
+$$\gamma = \left[\begin{array}{lll}
+1 & 0 & 0 \\
+0 & 1 & 0
+\end{array}\right]\left[\begin{array}{l}
+1 \\
+0 \\
+2
+\end{array}\right]= \left[\begin{array}{l}
+1 \\
+0 \\
+\end{array}\right]$$
+
+Además podemos obtener
+
+$$\operatorname{Var}(\hat{\beta})=\left[\begin{array}{lll}
+2 & 1 & 0 \\
+1 & 2 & 0 \\
+0 & 0 & 8
+\end{array}\right]=\hat{\sigma}_{u}^{2}\left(X^{\prime} X\right)^{-1}=\frac{1}{4}\left[\begin{array}{lll}
+2 & 1 & 0 \\
+1 & 2 & 0 \\
+0 & 0 & 8
+\end{array}\right] =\left[\begin{array}{lll}
+\frac{1}{2} & \frac{1}{4} & 0 \\
+\frac{1}{4} & \frac{1}{2} & 0 \\
+0 & 0 & 2
+\end{array}\right]$$
+
+Usamos, pues, la última matriz obtenida para reemplazar en la ecuación general, teniendo finalmente:
+
+$$F_{r, m-k}=\frac{\frac{\left(\left[\begin{array}{lll} 1 & 0 & 0 \\ 0 & 1 & 0 \end{array}\right]\left[\begin{array}{l}
+1 \\ 0 \\ 2 \end{array}\right]-\left[\begin{array}{l} 0 \\ 1 \end{array}\right]\right)^{\prime}\left(\left[\begin{array}{lll} 1 & 0 & 0 \\ 0 & 1 & 0 \end{array}\right]\left[\begin{array}{lll}
+\frac{1}{2} & \frac{1}{4} & 0 \\
+\frac{1}{4} & \frac{1}{2} & 0 \\
+0 & 0 & 2
+\end{array}\right]\left[\begin{array}{lll} 1 & 0 & 0 \\ 0 & 1 & 0 \end{array}\right]^{\prime}\right)^{-1}\left(\left[\begin{array}{lll} 1 & 0 & 0 \\ 0 & 1 & 0 \end{array}\right]\left[\begin{array}{l} 1 \\ 0 \\ 2 \end{array}\right]-\left[\begin{array}{l}
+0 \\ 1 \end{array}\right]\right)}{2}}{4} \quad (1)$$
+
+$$F=\frac{\frac{\left.\left[\begin{array}{rr} 1 & -1 \end{array}\right]\left[\begin{array}{lll} \frac{1}{2} & \frac{1}{4} & 0 \\ \frac{1}{4} & \frac{1}{2} & 0 \end{array}\right]\left[\begin{array}{ll} 1 & 0 \\ 0 & 1 \\ 0 & 0 \end{array}\right]\right)^{-1}\left[\begin{array}{c} 1 \\ -1 \end{array}\right]}{2}}{4} \qquad (2)$$
+$$F=\frac{\frac{\left[\begin{array}{rr} 1 & -1 \end{array}\right]\left[\begin{array}{cc} \frac{8}{3} & \frac{-4}{3} \\
+-\frac{4}{3} & \frac{8}{3} \end{array}\right]\left[\begin{array}{c} 1 \\ -1 \end{array}\right]}{2}}{4} \qquad (3)$$
+
+$$F=\frac{\frac{\left[\begin{array}{rr} 4 &-4 \end{array}\right]\left[\begin{array}{r} 1 \\-1 \end{array}\right]}{2}}{4} \qquad (4)$$
+\newline
+
+$$F=\frac{\frac{8}{2}}{4} \qquad(5)$$
+\newline
+
+$$F= 1 \qquad (6) $$
+
+## b)
+
+Se pide encontrar el vector X'Y, y sabemos que es un vector de 3x1. Dada la información de la matriz obtenida en la sección a, utilizamos la formula construída respecto de el estimador beta:
+
+$$\hat{\beta}=\left(X^{\prime} X\right)^{-1}\left(X^{\prime} Y\right)$$
+
+Para una operacionalización más rápida y usando ciertas propiedades de matrices, dividiremos la ecuación de la siguiente forma:
+
+$$ \hat{\beta}= A $$
+
+$$ \left(X^{\prime} X\right)^{-1} = B$$
+$$ \left(X^{\prime} Y\right) = C $$
+
+Con esto tenemos que:
+
+$$ A = B*X $$ 
+Aplicando propiedades de las matrices, tenemos entonces que:
+
+$$ B^{-1}A = B^{-1}BX$$ 
+Considerando que:
+
+$$B^{-1}B = I$$
+Podemos entonces reescribir la ecuación de la siguiente forma:
+
+$$\left(X^{\prime} Y\right) = B^{-1}B$$
+
+Ya que la matriz de identidad multiplicada por X es simplemente X misma, y en este caso X es la representación de X'Y.
+
+Entonces en el trabajo matricial tenemos que:
+
+$$(\left.X^{\prime} Y\right)=\left[\begin{array}{ccc}
+1 / 2 & 1 / 4 & 0 \\
+1 / 4 & 1 / 2 & 0 \\
+0 & 0 & 2
+\end{array}\right]^{-1}\left[\begin{array}{l}
+1 \\
+0 \\
+2
+\end{array}\right]$$
+
+El resultado de la inversa queda reescrito como:
+
+$$\left[\begin{array}{ccc} 8 / 3 & -4 / 3 & 0 \\ -4 / 3 & 8 / 3 & 0 \\ 0 & 0 & \frac{1}{2} \end{array}\right]\left[\begin{array}{l} 1 \\ 0 \\ 2 \end{array}\right]$$
+
+Y que en su multiplicación final resulta:
+
+$$\left(X^{\prime} Y\right)=\left[\begin{array}{c} 2,666 \\ -1,333 \\ 1 \end{array}\right]$$
+
+# Pregunta 2
+
+## a) Encuentre matriz de varianzas y covarianzas de n
+
+En la siguiente pregunta tenemos como información
+
+$$E\left[\hat{u}^{\prime}\right]=\sigma^{2} M$$
+
+A su vez, el valor de M se determina por la siguiente ecuación:
+
+$$M=I_{n}-X\left(X^{\prime} X\right)^{-1} X^{\prime}$$ 
+Tengo la matriz de X que corresponde a los valores de la constante que multiplican betacero, además de X que corresponde a los años de estudio promedio de la tabla dada en el enunciado. Esto resulta en:
+
+$$X=\left[\begin{array}{cc}
+1 & 8 \\
+1 & 9 \\
+1 & 10 \\
+1 & 8 \\
+1 & 7,5
+\end{array}\right]$$
+
+Entonces se desarrolla la ecuación resultando en:
+
+$$\left(X^{\prime} X\right)^{-1} = \left[\begin{array}{ccccc}
+1 & 1 & 1 & 1 & 1 \\
+8 & 9 & 10 & 8 & 7,5
+\end{array}\right] \times\left[\begin{array}{cc}
+1 & 8 \\
+1 & 9 \\
+1 & 10 \\
+1 & 8 \\
+1 & 7,5
+\end{array}\right]^{-1} \qquad (1)$$
+
+$$(X^{\prime} X) ^{1}=\left[\begin{array}{ll}  5 & 8+9+10+8+7,5 \\
+8+9+10+8+7,5 & 8 \cdot 8+9 \cdot 9+10 \cdot 10+8 \cdot 8+7,5 \cdot 7,5
+\end{array}\right]^{-1} \qquad (2)$$
+
+$$X^{\prime} X^{-1}=\left[\begin{array}{cc}
+5 & -42,5 \\
+-42,5 & 365,25
+\end{array}\right]^{-1} \qquad (3)$$
+
+Luego invertimos la matriz. Obtenemos el determinante:
+
+$$\left|X^{\prime} X\right|=[1826,25-1806,25] \qquad (4)$$
+$$\left|X^{\prime} X\right| = [20] \qquad (5)$$
+
+Luego la matriz de cofactores y y adjunta:
+
+$$\text{Matriz de cofactores} \qquad X^{\prime} X=\left[\begin{array}{cc}
+365,25 & -42,5 \\
+-42,5 & 5
+\end{array}\right] \qquad (6)$$
+
+
+$$\text{Matriz adjunta} \qquad X^{\prime} X=\left[\begin{array}{cc}
+365,25 & -42,5 \\
+-42,5 & 5
+\end{array}\right] \qquad (7)$$
+
+Se divide por su determinante:
+
+$$\left(X^{\prime} X\right)^{-1}=\left[\begin{array}{cc}
+\frac{365,25}{20} & \frac{-42,5}{20} \\
+\frac{-42,5}{20} & \frac{5}{20}
+\end{array}\right] \qquad (8)$$
+
+$$(\left.X^{\prime} X\right)^{-1}=\left[\begin{array}{cc}
+18,262 & -2,125 \\
+-2,125 & 0,25
+\end{array}\right] \qquad (9)$$
+
+Luego de obtener ese resultado procedemos a multiplicar por X y luego denuevo por X':
+
+$$X\left(X^{1} X\right)^{-1}=\left[\begin{array}{cc}
+1 & 8 \\
+1 & 9 \\
+1 & 10 \\
+1 & 8 \\
+1 & 7,5
+\end{array}\right] \cdot\left[\begin{array}{cc}
+18,262 & -2,125 \\
+-2,125 & 0,25
+\end{array}\right] \qquad (1)$$
+
+$$\left(X^{\prime} X\right)^{-1}=\left[\begin{array}{ll}
+18,262+8(-2,125) & -2,125+8(0,25) \\
+18,262+9(-2,125) & -2,125+9(0,25) \\
+18,262+10(-2,125) & -2,125+10(0,25) \\
+18,262+8(-2,125) & -2,125+8(0,25) \\
+18,262+7,5(-2,125) & -2,125+7,5(0,25)
+\end{array}\right] \qquad (2)$$
+
+$$\left(X^{\prime} X\right)^{-1}= \left[\begin{array}{cc}
+1,262 & -0,125 \\
+-0,863 & 0,125 \\
+-2,988 & 0,375 \\
+1,262 & -0,125 \\
+2,324 & -0,25
+\end{array}\right] \qquad (3)$$
+
+
+Luego multiplicamos por X':
+
+$$X\left(X^{\prime} X\right)^{-1}X'=\left[\begin{array}{cc}
+1,262 & -0,125 \\
+-0,863 & 0,125 \\
+-2,988 & 0,375 \\
+1,262 & -0,125 \\
+2,324 & -0,25
+\end{array}\right] \cdot\left[\begin{array}{cccc}
+1 & 1 & 1 & 1 \\
+8.9 & 10 & 8 & 7,5
+\end{array}\right] \qquad (4)$$
+
+Obtenemos como resultado:
+
+$$X\left(X^{\prime} X\right)^{-1}X'=\left[\begin{array}{ccccc}
+0,262 & 0,137 & 0,012 & 0,262 & 0,324 \\
+0,137 & 0,262 & 0,387 & 0,137 & 0,074 \\
+0,012 & 0,387 & 0,762 & 0,012 & -0,175 \\
+0,262 & -2,387 & -2,512 & 0,262 & 0,324 \\
+0,324 & 0,074 & -0,176 & 0,324 & 0,449
+\end{array}\right] \qquad (5)$$
+
+
+## b)
+
+La matriz de covarianza de del estimador MCO se escribe con la siguiente ecuación:
+
+$$\operatorname{var}(\hat{\alpha})=\sigma_{u}^{2}\left(X^{\prime} X\right)^{-1}$$
+Parte de este ejercicio ya fue resuelto en la sección anterior (ecuación 9), por lo que la fórmula de su representación es:
+
+$$\operatorname{Var}(\hat{a})=\sigma_{\mu}^{2}\left[\begin{array}{cc}
+18.262 & -2,125 \\
+-2.125 & 0,25
+\end{array}\right]$$
+
+# Pregunta 3
+
+## a) 
+La respuesta es que el número de observaciones es de 10, ya que la ecuación de X'X posee un 10 en su primera fila y primera columna. ¿Cómo se comprueba esto? el modelo de estimación al tener una constante, comprendemos que la forma de calcularla es como se ilustra a continuación:
+
+$$X^{\prime} X=\left[\begin{array}{cc}
+\sum_{i=1}^{n} 1 & \sum_{i=1}^{n} x_{i} \\
+\sum_{i=1}^{n} x_{i} & \sum_{i=1}^{n} x_{i}^{2}
+\end{array}\right]$$
+
+Es decir que la primera fila en a primera columna, dados que hay modelo con constante, se traduce en una sumatoria de 1 dando el primer elemento de X'X que fue dado en el enunciado. es decir que a partir de esto podemos confirmar que son 10 observaciones en la estimación.
+
+## b) 
+
+Para obtener el estadístifo F utilizamos la misma fórmula que en el ejercicio a de la pregunta 1:
+
+$$F_{r, n-k}=\frac{\frac{(C \hat{\beta}-C \beta)^{\prime}\left(C\left(X^{\prime} X\right)^{-1} C^{\prime}\right)^{-1}(C \hat{\beta}-C \beta)}{r}}{\hat{\sigma}_{u}^{2}}$$
+construímos C en base a las restricciones:
+
+$$C=\left[\begin{array}{ll}
+1 & 0 \\
+0 & 1
+\end{array}\right]$$
+
+También podemos obtener gamma, a partir de:
+
+$$C \beta = \gamma = \left[\begin{array}{ll}
+1 & 0 \\
+0 & 1
+\end{array}\right]\left[\begin{array}{l}
+0 \\
+0
+\end{array}\right]=\left[\begin{array}{l}
+0 \\
+0
+\end{array}\right]$$
+
+Ya teniendo estos elementos, conociendo las restricciones y también considerando que tenemos X'X, podemos reescribir la escuación de la siguiente forma:
+
+$$F=\frac{\frac{\left(\left[\begin{array}{ll} 1 & 0 \\ 0 & 1 \end{array}\right]\left[\begin{array}{l} 1 \\ 1 \end{array}\right]-\left[\begin{array}{l} 0 \\ 0 \end{array}\right]\right)^{\prime}\left(\left[\begin{array}{ll} 1 & 0 \\ 0 & 1 \end{array}\right]\left[\begin{array}{cc} 10 & 1 \\ 1 & 6 \end{array}\right]^{-1}\left[\begin{array}{ll} 1 & 0 \\
+0 & 1 \end{array}\right]\right)^{-1}\left(\left[\begin{array}{ll} 1 & 0 \\ 0 & 1 \end{array}\right]\left[\begin{array}{l}
+1 \\ 1 \end{array}\right]-\left[\begin{array}{l} 0 \\ 0 \end{array}\right]\right)}{2}}{4} \qquad (1)$$
+
+al haber matrices de identidad multiplicadas por otras, podemos resumir rapidamente en:
+
+$$F=\frac{\frac{\left(\left[\begin{array}{l}
+1 \\ 1 \end{array}\right]-\left[\begin{array}{l} 0 \\ 0 \end{array}\right]\right)^{\prime}\left(\left[\begin{array}{cc} 10 & 1 \\ 1 & 6 \end{array}\right]^{-1}\left[\begin{array}{ll} 1 & 0 \\ 0 & 1 \end{array}\right]\right)^{-1}\left(\left[\begin{array}{l} 1 \\ 1 \end{array}\right]-\left[\begin{array}{l} 0 \\ 0 \end{array}\right]\right)}{2}}{4} \qquad (2)$$
+
+
+$$F=\frac{\frac{\left[\begin{array}{ll} 1 & 1 \end{array}\right]\left(\left[\begin{array}{cc}
+\frac{6}{59} & \frac{-1}{59} \\ \frac{-1}{59} & \frac{10}{59} \end{array}\right]\left[\begin{array}{ll}
+1 & 0 \\ 0 & 1 \end{array}\right]\right)^{-1}\left[\begin{array}{l} 1 \\ 1 \end{array}\right]}{2}}{4} \qquad (3)$$
+
+$$F=\frac{\frac{\left[\begin{array}{ll} 1 & 1 \end{array}\right]\left[\begin{array}{cc} 10 & 1 \\ 1 & 6 \end{array}\right]\left[\begin{array}{l} 1 \\ 1 \end{array}\right]}{2}}{4} \qquad(4)$$
+$$F=\frac{\frac{\left[\begin{array}{ll} 11 & 7 \end{array}\right]\left[\begin{array}{l} 1 \\ 1 \end{array}\right]}{2}}{4} \qquad (5)$$
+$$F=\frac{\frac{18}{2}}{4} \qquad (6)$$
+$$F= 2.25 \qquad (7)$$
+
+
+## c)
+
+Se pregunta por si se puede rechazar la hipóteiss nula en el apartado anterior. Para ello debemos dejar en claro que 
+
+$$H_0: \beta_1 = \beta_2 = 0$$
+dado que:
+
+$$F_{0,05}(2,8)=4,459$$
+Y en el test F obtuvimos un 2.25, no se rechaza la hipótesis nula con un 95% de probabilidad. 
+
+
+## d)
+
+Para realizar el estadístico F utilizamos la misma formula que en la sección 1.a. Tenemos también la matriz de C y la obtención de Gama con la siguiente ecuación:
+
+$$C \beta = \gamma \qquad (1)$$
+
+$$\left[\begin{array}{ll} 0 & 1 \end{array}\right]\left[\begin{array}{l} 0 \\ 0 \end{array}\right]=0 \qquad (2)$$
+Y además tenemos:
+
+$$(X'X)^{-1}=`\left[\begin{array}{cc}
+\frac{6}{59} & \frac{-1}{59} \\ \frac{-1}{59} & \frac{10}{59} \end{array}\right]$$
+
+
+Reordenando todos los componentes tenemos que:
+
+
+$$F=\frac{\frac{\left[\begin{array}{ll}1 & 0 \end{array}\right]\left(\left[\begin{array}{ll} 0 & 1 \end{array}\right]\left[\begin{array}{ll} \frac{6}{59} & \frac{-1}{59} \\ \frac{1}{59} & \frac{10}{59} \end{array}\right]\left[\begin{array}{l} 0 \\ 1 \end{array}\right]\right)\left[\begin{array}{rr} 1 & 0 \end{array}\right]}{2-1}}{4} \qquad (1)$$
+$$F=\frac{\frac{1\left(\left[\frac{1}{59} \frac{10}{59}\right]\left[\begin{array}{l}
+0 \\ 1 \end{array}\right]\right)^{-1}1}{1}}{4} \qquad (2)$$
+
+$$F=\frac{\frac{\left[\begin{array}{l}
+0 \\
+\frac{5 9}{10}
+\end{array}\right]\left[\begin{array}{ll}
+0 & 1
+\end{array}\right]}{1}}{4} \qquad (3)$$
+
+$$F=\frac{\frac{\frac{59}{10}}{1}}{4} \qquad(4)$$
+
+$$F= 1.475 \quad(5)$$ 
+
+## e)
+
+Podemos utilizar la formula de R² en base al estadistico F de significación conjunta expresado en:
+
+$$F=\frac{\frac{R^{2}}{k-1}}{\frac{1-R^{2}}{n-k}} \sim F(k-1, n-k)$$
+Reemplazando los datos que tenemos restricción, número de observaciones y número de parámetros y el valor de F, la reescribimos como:
+
+$$1,475=\frac{\frac{\frac{R^{2}}{1}}{1-R^{2}}}{8} \qquad (1)$$
+
+$$1,475=\frac{8 R^{2}}{1\left(1-R^{2}\right)} \qquad (2)$$
+$$1.475 (1-R^{2}) = 8R^{2} \qquad(3)$$
+$$1.475 - 1.1475R^{2}= 8R^{2} \qquad(4)$$ 
+$$1.475 = 8R^{2} + 1.475R^{2} \qquad(5)$$
+$$1.475 = 9.475R^{2} \qquad(6)$$
+$$R^{2}= \frac{1.475}{9.475} \qquad(7)$$
+$$R^{2}= 0.155 \qquad (8) $$
+
+## f)
+
+La fórmula a utilizar para obtener la suma total de cuadrados la pondremos en función de R². Entonces:
+
+$$R^{2}= 1- \frac{SCR}{SCT}$$
+El valor de SCR lo obtenemos a partir de la varianza:
+
+$$\hat{\sigma}^{2} = \frac{SCR}{n-k} \qquad (1)$$
+
+$$ 4 = \frac{SCR}{10-2} \qquad  (2)$$
+
+$$ SCR = 32 \qquad (3)$$
+Entonces:
+
+$$0.155 = 1- \frac{32}{SCT} \qquad(4)$$
+
+$$ 1- 0.155 = \frac{32}{SCT} \qquad(5) $$
+$$ 0.8445 = \frac{32}{SCT} \qquad(6) $$
+$$ SCT = \frac{32}{0.8445} \qquad(7) $$
+$$ SCT = 37,9 \qquad(8)$$
+
+## g)
+
+Para analizar el conjunto de hipótesis  tenemos que:
+
+$$\left\{\begin{array}{l}
+1)  \beta_{1}+\beta_{2}=1 \\
+2) \beta_{1}-\beta_{2}=0
+\end{array}\right.$$
+
+por tanto:
+
+$$ 1) \beta_1 = 1- \beta_2 $$
+reemplazamos en 2):
+
+$$ 1-\beta_2 - \beta_2 = 0  \qquad (1)$$
+$$ 1 =  2\beta_2 \qquad (2)$$
+
+
+$$ \beta_2 = 0.5 \qquad(3) $$
+y considerando:
+
+$$ \beta_1 = 1-\beta_2 \qquad(1) $$
+
+$$ \beta_1 = 1- 0.5 \qquad (2) $$
+
+$$ \beta_1 = 0.5 \quad (3)$$
+Ya con mis beta conocidos y usando la fórmnula del estadístico F puedo ahora construir mi matriz de coeficientes del sistema de restricciones y reemplazarlos en la formula.  Entonces:
+
+
+$$\left\{\begin{array}{l} 1 \beta_{1}+0 \beta_{2}=0,5 \\ 0 \beta_{1}+1 \beta_{2}=0,5 \end{array}\right.$$
+$$C \beta=\left[\begin{array}{ll} 1 & 0 \\ 0 & 1 \end{array}\right]\left[\begin{array}{l} 1 \\ 1 \end{array}\right]=\left[\begin{array}{l} 1 \\ 1 \end{array}\right]$$ 
+
+$$F=\frac{\frac{\left(\left[\begin{array}{l} 1 \\ 1 \end{array}\right]-\left[\begin{array}{l} 0,5 \\ 0,5 \end{array}\right]\right)^{\prime}\left(\left[\begin{array}{ll} 1 & 0 \\  0 & 1 \end{array}\right]\left[\begin{array}{cc} \frac{6}{59} & \frac{-1}{59} \\ \frac{-1}{59} & \frac{10}{59} \end{array}\right]\left[\begin{array}{ll} 1 & 0 \\ 0 & 1 \end{array}\right]\right)^{-1}\left(\left[\begin{array}{l} 1 \\ 1 \end{array}\right]-\left[\begin{array}{l} 0,5 \\ 0,5 \end{array}\right]\right)}{2}}{4} \qquad (1)$$
+considerando que las multiplicaciones de por matriz inversa son la misma matriz, podemos reducir el cálculo a la siguiente expresión:
+
+$$F=\frac{\left[\begin{array}{l} 0,5 \\ 0,5 \end{array}\right]^{\prime} \left[\begin{array}{ll} \frac{6}{59} & \frac{-1}{59} \\ \frac{-1}{59} & \frac{10}{59} \end{array}\right]^{-1}\left[\begin{array}{l} 0,5 \\ 0,5 \end{array}\right]}{2} \qquad (2)$$
+
+$$F= \frac{\frac{\left[\begin{array}{ll} 0,5 & 0,5 \end{array}\right]\left[\begin{array}{cc} 10 & 1 \\ 1 & 6 \end{array}\right]\left[\begin{array}{l} 0,5 \\ 0,5 \end{array}\right]}{2}}{4} \qquad (3)$$
+
+$$F=\frac{\frac{\left[\begin{array}{ll} \frac{11}{2} & \frac{7}{2} \end{array}\right]\left[\begin{array}{l} 0,5 \\ 0,5 \end{array}\right]}{2}}{4} \qquad (4)$$
+
+$$ F=\frac{\frac{9/2}{2}}{4} = \frac{\frac{9}{4}}{4} \qquad (5)$$
+$$ F = 0.5625 \qquad (6) $$
+
+## h)
+Se pide un nuevo test de hipótesis conjuntas donde: 
+
+$$\beta_1 = 0.5 ; \beta_2 = 0.5$$
+Como se realizó anteriormente en la sección G, ambos betas tienen el mismo valor que para este nuevo enunciado, por lo que el test Estadístico F es el mismo:
+
+$$ F= 0.5625 $$
+
+# Pregunta 4
+
+```{r, message=F, warning=F, echo=FALSE}
+pacman::p_load(tidyverse, MASS, stargazer, dplyr, xtable)
+```
+
+```{r,message=F, warning=F, echo=FALSE}
+df <-read.csv("tarea1.csv")
+
+df$GPC <-df$GASEXP*10^6/(df$GASP*df$POP)
+```
+## a) 
+
+Se crea la variable gasolina per cápita (GPC) a partir de la exportación de gaslina dividido por la multiplicación de índice de precios de gasolina por la población total de EEUU. Luego computamos una regresión lineal múltiple con las variables independientes de Ingreso, índice de precios de gasolina (GASP), índice de precios de autos nuevos y usados (PNC y PUC, respectivamente), índice de precios de transporte público (PPT), índice de precios agregado de bienes durables y no durables (PD y PN, respectivamente), así como el índice de precios de servicios de consumo (PS). La regresión está expresada en la siguiente ecuación:
+
+$$CPC_t =  \beta_0 + \beta_1 GASP + \beta_2 T + \beta_3 PNC_t + \beta_4 PUC_t + \beta_5 PPT_t + \beta_6 PD_t + \beta_7 
+    PN_t + \beta_8 PS_t + u_t $$
+
+Los resultados quedan expresados en la siguiente tabla de regresión:
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE}
+reg1 <-lm(GPC ~ INCOME + GASP + PNC + PUC + PPT + PS + PD + PN + YEAR, data = df)
+```
+
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+summary(reg1)
+```
+
+Con respecto a las expectativas, vemos que el ajuste en base al R cuadrado es bastante alto en su versión normal y ajustada, por lo que habla de la robustez del análisis
+
+
+Podemos observar que las variables de Año e Ingreso (YEAR e INCOME, respectivamente) son las variables con mayor nivel de significancia en la regresión. Esto es esperable pues las fluctuaciones de los precios de gasolina han sufrido numerosos cambios y en cuanto al ingreso es una teoría bastante trabajada que mientras más aumenta el ingreso, más es el consumo general (aunque no necesariamente lineal). 
+
+Por otra parte, que los valores de productos ligados a consumo bajen, tanto porque abarata costos de producción en sí misma. 
+
+
+## b)
+
+Del enunciado se puede formalizar de la siguiente forma las hipótesis:
+
+$$ H_0 = \beta_3 - \beta_4 = 0 ; H_1 = \beta_3 - \beta_4 \neq 0 $$
+
+Para esto se ha propuesto hacer un test F de modelo restringido y no restringido. En el restringido corresponde a la misma regresión anterior pero con los precios de autos nuevos y usados sumados; en el segundo se hará con los precios por separado.
+
+A partir de los coeficientes del modelo no-restringido podemos hacer el siguiente modelo: 
+
+$$F=\frac{(SSR_R - SSR_{NR}) / q }{ SSR_{NR} / (n-k-1)} = \frac{(R^2_{NR}- R^2_{R})/q}{(1-R^2_{NR})/(n-k-1)}$$
+
+```{r, warning=FALSE,message=FALSE, echo=FALSE}
+df$totPr <-df$PNC + df$PUC
+
+regRES <-lm(GPC ~ INCOME + GASP + totPr + PPT + PS + PD + PN + YEAR, data = df)
+summary(reg1)
+
+regNORE <-lm(GPC ~ INCOME + GASP + PUC + PNC + PPT + PS + PD + PN + YEAR, data = df)
+summary(regNORE)
+
+RES <-0.9912
+noRE <-0.9913
+
+
+f <- ((noRE - RES) / (2)) / ((1 - noRE) /  (52 - 8 - 1))
+```
+
+Los coeficientes de los modelos son:
+
+1) Modelo Restringido: 0.9912 
+2) Modelo No-restringido: 0.9913
+
+
+Considerando los parámetros, número de observaciones, hacemos el test F el cual da un resultado de 
+
+```{r}
+print(f)
+```
+si observamos la tabla de distribución F por los grados de libertad, vemos que el punto límite es de 3.21, por lo tanto el test indica que no se puede rechazar la hipótesis nula.
+
+
+## c)
+
+Luego de obtener los coeficiente de cada una de las variables 
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+db_c <-df%>%
+  dplyr::filter(df$YEAR == 2004)
+
+
+df$g <- (1000000) * (df$GASEXP)/(df$GASP*df$POP)
+
+
+elasticidadincome <- (2.158e-10) * (27113) / (6.164056e-06)
+print("La elasticidad del ingreso es")
+elasticidadincome
+
+elasticidadgasp <- (-1.108e-08) * (123.901) / (6.164056e-06)
+elasticidadgasp
+
+
+elasticidadppt <- (6.907e-09) * (209.1) / (6.164056)
+elasticidadppt
+```
+
+Elasticidad de ingreso : 0.9492103
+
+Elasticidad de precio de demanda: -0.2227142
+
+Elasticidad de precio cruzada con transporte público: 0.2343025
+
+
+## d)
+
+Al reestimar la regresión en logaritmos conseguimos la siguiente tabla:
+
+```{r, warning=FALSE, message=FALSE, echo=FALSE}
+PCCG <- lm(log(GPC) ~ log(GASP) + log(PNC) + log(PUC) + log(PPT)
+           + log(PN) + log(PD) + log(PS) + log(INCOME) + YEAR, data = df)
+
+summary(PCCG)
+```
+En esta tabla de regresion vemos algunas diferencias sustanciales: si bien el R² varía muy poco, vemos que los niveles de significancia de distinta variables son más altos que en la primera regresión, como PS, PD y PUC. Otro elemento importante es que en este modelo podemos apreciar elasdticidades, por lo que esta forma de cálculo entrega más información con prácticamente el mismo trabajo. 
+
+
+## e)
+
+al realizar una tabla de correlaciones simples con entre los precios obtenemos la siguiente tabla:
+
+```{r, echo=FALSE, warning=FALSE, message=FALSE}
+cor.price <- df %>% dplyr::select(PNC, PUC, PPT, PN, PD,PS)
+cor(cor.price)
+```
+
+vemoa cómo claramente en la tabla se tiende a la colinealidad de las variables, cuestión que es una violación a uno de los principios básicos de las regresiones multivariables.
+
+
+## f)
+
+Al normalizar los valores y hacer la nueva regresión se consiguen los siguientes resultados:
+
+```{r, echo= TRUE, warning=TRUE, message=TRUE, echo=FALSE}
+
+df$GASPn <- 100*(df$GASP/df$GASP[df$YEAR ==2004])
+df$PNCn <- 100*(df$PNC/df$PNC[df$YEAR ==2004])
+df$PUCn <- 100*(df$PUC/df$PUC[df$YEAR ==2004])
+df$PPTn <- 100*(df$PPT/df$PPT[df$YEAR ==2004])
+df$PDn <- 100*(df$PD/df$PD[df$YEAR ==2004])
+df$PNn <- 100*(df$PN/df$PN[df$YEAR ==2004])
+df$PSn <- 100*(df$PS/df$PS[df$YEAR ==2004])
+
+NUEVOMOD <- lm(GPC ~ INCOME + GASPn + PNCn + PUCn + PPTn + PNn +
+                     PDn + PSn + YEAR, data = df)
+summary(NUEVOMOD)
+
+```
+
+Podemos concluir que los precios normalizados no difieren mayormente de los de la regresión de la sección a. 
+
